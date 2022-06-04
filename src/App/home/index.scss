@@ -1,0 +1,43 @@
+.view {
+    padding-left: 50px;
+
+    &>h2 {
+        margin-top: 30px;
+        border-left: 2px solid rgb(38, 212, 11);
+        padding-left: 5px;
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    &>.computer-info {
+        &>li {
+            display: inline-block;
+            width: 160px;
+            margin: 10px 40px 0 0;
+            outline: 1px solid rgb(227, 226, 226);
+            font-size: 12px;
+            line-height: 2em;
+            padding-left: 40px;
+            background-repeat: no-repeat;
+            background-size: auto 70%;
+            background-position: 3px center;
+
+            &.time {
+                background-image: url('./image/time.png');
+            }
+
+            &.memory {
+                background-image: url('./image/memory.png');
+            }
+
+            &>h4 {
+                font-weight: 800;
+                color: rgb(10, 124, 124);
+            }
+
+            &>span {
+                font-weight: 400;
+            }
+        }
+    }
+}
