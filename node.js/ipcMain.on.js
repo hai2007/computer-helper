@@ -16,15 +16,17 @@ module.exports = function (win) {
     ipcMain.on('quit', () => { app.exit(); });
 
     // 打开窗口
-    ipcMain.on('new-win', (event, winName) => {
+    ipcMain.on('new-win', (event, data) => {
+
+        let winName = data.winName;
 
         if (winLise[winName]) {
             winLise[winName].show();
         } else {
 
             let newWin = new BrowserWindow({
-                width: 960,
-                height: 620,
+                width: data.size.width,
+                height: data.size.height,
                 resizable: false,
                 frame: false,
                 webPreferences: {

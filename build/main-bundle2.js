@@ -39,7 +39,13 @@ var _class = (_dec = Component({
   }, {
     key: "openNewWin",
     value: function openNewWin(event) {
-      globalThis.nodeRequire('electron').ipcRenderer.send('new-win', event.target.getAttribute('tag'));
+      globalThis.nodeRequire('electron').ipcRenderer.send('new-win', {
+        winName: event.target.getAttribute('tag'),
+        size: {
+          width: 960,
+          height: 620
+        }
+      });
     }
   }]);
 

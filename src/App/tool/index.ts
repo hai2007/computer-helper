@@ -12,6 +12,12 @@ export default class {
         globalThis.nodeRequire('electron').shell.openExternal(event.target.getAttribute('tag'))
     }
     openNewWin(event) {
-        globalThis.nodeRequire('electron').ipcRenderer.send('new-win', event.target.getAttribute('tag'))
+        globalThis.nodeRequire('electron').ipcRenderer.send('new-win', {
+            winName: event.target.getAttribute('tag'),
+            size: {
+                width: 960,
+                height: 620
+            }
+        })
     }
 }
