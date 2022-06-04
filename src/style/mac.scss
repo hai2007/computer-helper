@@ -1,0 +1,51 @@
+body[system='mac'] {
+
+    div.view>.menu>.title{
+        padding-left: .9rem;
+        background-position: .5rem center;
+    }
+
+    // 关闭、最小化等窗口按钮样式修改
+    div.view>.menu>.winBtn {
+        left: 0;
+        width: 70px;
+
+        ul {
+            position: relative;
+            margin-left: 25px;
+            height: 30px;
+
+            &:hover {
+                &>li {
+                    &.quit {
+                        background-position-x: -1px;
+                    }
+
+                    &.minimize {
+                        background-position-x: 369px;
+                    }
+                }
+            }
+
+            &>li {
+                width: .2rem;
+                background-image: url(./image/win-btn@mac.png);
+
+                &:hover {
+                    background-color: #0000;
+                }
+
+                &.quit {
+                    background-position-x: -225px;
+                    position: absolute;
+                    left: -21px;
+                }
+
+                &.minimize {
+                    background-position-x: 77px;
+                }
+            }
+        }
+    }
+
+}

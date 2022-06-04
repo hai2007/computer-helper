@@ -1,0 +1,17 @@
+<div class='view'>
+    <div class="menu" ui-bind:not-focus="notFocus?'yes':'no'">
+        <div class="title" style="-webkit-app-region: drag">
+            计算机助手
+        </div>
+        <div class="winBtn" style="-webkit-app-region: no-drag">
+            <ui-win-btn></ui-win-btn>
+        </div>
+        <div class="nav" style="-webkit-app-region: drag">
+            <ul style="-webkit-app-region: no-drag">
+                <li tag="home" ui-on:click="loadPage" ui-bind:active="currentPage.name=='home'?'yes':'no'">启动页</li>
+                <li tag="tool" ui-on:click="loadPage" ui-bind:active="currentPage.name=='tool'?'yes':'no'">工具箱</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content" ui-lazy='currentPage.value'></div>
+</div>

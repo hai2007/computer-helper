@@ -1,0 +1,84 @@
+.view {
+    font-size: .12rem;
+    user-select: none;
+
+    &>.menu {
+        background-color: #e7e1a3;
+
+        &[not-focus='yes'] {
+            background-color: #ddd9ae;
+        }
+
+        height: .7rem;
+        line-height: .3rem;
+        color: #747179;
+        position: relative;
+
+        &>.winBtn {
+            right: 0;
+            top: 0;
+            position: absolute;
+        }
+
+        &>.title {
+            text-align: left;
+            line-height: .7rem;
+            padding-left: .5rem;
+            font-size: 20px;
+            font-weight: 800;
+            background-image: url('./image/logo.png');
+            background-position: .1rem center;
+            background-size: auto 50%;
+            background-repeat: no-repeat;
+            font-family: cursive;
+        }
+
+        &>.nav {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100vw;
+
+            &>ul {
+                white-space: nowrap;
+                display: inline-block;
+
+                &>li {
+                    display: inline-block;
+                    width: 66px;
+                    height: 55px;
+                    margin: 0 2px;
+                    background-size: 40px auto;
+                    background-repeat: no-repeat;
+                    background-position: center top;
+                    padding-top: 30px;
+                    font-size: 12px;
+                    vertical-align: bottom;
+                    cursor: pointer;
+                    border-radius: 10px 10px 0 0;
+
+                    &:hover {
+                        background-color: #d5cfa6;
+                    }
+
+                    &[active='yes'] {
+                        background-color: rgb(255, 255, 255);
+                    }
+
+                    &[tag='home'] {
+                        background-image: url('./image/logo.png');
+                    }
+
+                    &[tag='tool'] {
+                        background-image: url('./image/tool.png');
+                    }
+                }
+            }
+        }
+    }
+
+    &>.content {
+        height: calc(100vh - .7rem);
+        overflow: auto;
+    }
+}

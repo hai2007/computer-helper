@@ -1,0 +1,27 @@
+ul {
+    &>li {
+        display: inline-block;
+        background-image: url('./image/win-btn.png');
+        font-size: 0;
+        vertical-align: top;
+        width: .45rem;
+        background-position-y: center;
+
+        &:hover {
+            background-color: #c7c6c6;
+        }
+
+        &.minimize {
+            background-position-x: 1px;
+        }
+
+        &.quit {
+            background-position-x: 42px;
+
+            &:hover {
+                background-image: url('./image/win-btn@white.png');
+                background-color: red;
+            }
+        }
+    }
+}

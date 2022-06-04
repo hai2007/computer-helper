@@ -1,0 +1,40 @@
+/*
+  @author 你好2007
+  2020年6月8日于大同
+*/
+html {
+    font-size: 100px;
+}
+
+body {
+    font-size: .16rem;
+}
+
+::-webkit-scrollbar {
+    width: 0rem;
+    height: 0rem;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+    height: .3rem;
+    background-color: #adadad;
+    border-radius: .05rem;
+}
+
+:hover::-webkit-scrollbar {
+    width: .1rem;
+    height: .1rem;
+}
+
+// 失去光标特殊样式
+body.notFocus {
+    div.view>.menu {
+        background-color: #e6e2ec;
+    }
+
+    div.view>.bottom {
+        background-color: #9c86bd;
+    }
+}
