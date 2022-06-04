@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频播放器</title>
+    <script>
+
+        // 重新定义node.js暴露和web冲突的名称
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+
+    </script>
+    <script src="./video-player.min.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        header {
+            line-height: 30px;
+            background-color: #e7e1a3;
+            text-align: center;
+        }
+
+        header>h2 {
+            padding-left: 40px;
+            background-image: url('../../image/video.png');
+            background-size: auto 90%;
+            background-position: left center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        #root {
+            height: 590px;
+            background-color: black;
+        }
+
+        .quit {
+            background-image: url('../../image/win-btn.png');
+            background-position-x: 42px;
+            width: 45px;
+            background-position-y: center;
+            height: 30px;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0;
+        }
+
+        .quit:hover {
+            background-image: url('../../image/win-btn@white.png');
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="-webkit-app-region: drag">
+        <h2>
+            视频播放器
+        </h2>
+        <span class="quit" onclick="doclose()" style="-webkit-app-region: no-drag">关闭</span>
+    </header>
+    <div id="root"></div>
+    <script>
+        new VideoPlayer({
+            el: document.getElementById('root')
+        });
+
+        function doclose() {
+            window.nodeRequire('electron').ipcRenderer.send('close-win', 'video-player')
+        }
+    </script>
+</body>
+
+</html>

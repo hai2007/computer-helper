@@ -51,6 +51,10 @@
                 background-image: url('./image/draft.png');
             }
 
+            &.video {
+                background-image: url('./image/video.png');
+            }
+
             &:hover {
                 outline: 1px solid rgb(199, 196, 196);
             }

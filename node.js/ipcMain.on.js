@@ -1,4 +1,6 @@
-const { ipcMain, app } = require('electron');
+const { ipcMain, app, BrowserWindow } = require('electron');
+
+let winLise = {};
 
 module.exports = function (win) {
 
@@ -12,6 +14,37 @@ module.exports = function (win) {
 
     // 退出系统
     ipcMain.on('quit', () => { app.exit(); });
+
+    // 打开窗口
+    ipcMain.on('new-win', (event, winName) => {
+
+        if (winLise[winName]) {
+            winLise[winName].show();
+        } else {
+
+            let newWin = new BrowserWindow({
+                width: 960,
+                height: 620,
+                resizable: false,
+                frame: false,
+                webPreferences: {
+                    nodeIntegration: true,
+                    webSecurity: false
+                }
+            })
+
+            newWin.loadFile('./static/' + winName + '/index.html');
+
+            winLise[winName] = newWin
+        }
+
+    });
+
+    // 打开窗口
+    ipcMain.on('close-win', (event, winName) => {
+        winLise[winName].close();
+        winLise[winName] = null;
+    })
 
     /**
      * 监听来自原生窗口操作
