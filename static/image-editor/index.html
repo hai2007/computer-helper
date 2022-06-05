@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./logo.png">
+    <title>图片编辑器</title>
+    <script>
+
+        // 重新定义node.js暴露和web冲突的名称
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+
+    </script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        header {
+            line-height: 30px;
+            text-align: center;
+            position: fixed;
+            right: 0;
+            width: calc(100vw - 170px);
+            z-index: 10;
+        }
+
+        header>h2 {
+            display: inline-block;
+            font-size: 14px;
+            vertical-align: top;
+            padding-right: 170px;
+        }
+
+        #root {
+            height: 620px;
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            left: 0;
+        }
+
+        .quit {
+            background-image: url('../../image/win-btn.png');
+            background-position-x: 42px;
+            width: 45px;
+            background-position-y: center;
+            height: 30px;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0;
+        }
+
+        .quit:hover {
+            background-image: url('../../image/win-btn@white.png');
+            background-color: red;
+        }
+
+        .menu {
+            background-color: #e7e1a3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header style="-webkit-app-region: drag">
+        <h2>
+            图片编辑器
+        </h2>
+        <span class="quit" onclick="doclose()" style="-webkit-app-region: no-drag">关闭</span>
+    </header>
+    <div id="root"></div>
+
+    <script>
+
+        function doclose() {
+            window.nodeRequire('electron').ipcRenderer.send('close-win', 'image-editor')
+        }
+
+        var host = window.location.host;
+
+        // 获取head标签
+        var head = document.getElementsByTagName('head')[0];
+
+        // 创建script
+        var script = document.createElement('script');
+
+        // 设置属性
+        script.src = "./build/main@v0.1.1.js";
+
+        // 追加到页面
+        head.appendChild(script);
+
+    </script>
+
+</body>
+
+</html>

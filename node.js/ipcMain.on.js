@@ -36,7 +36,7 @@ module.exports = function (win) {
             })
 
             newWin.loadFile('./static/' + winName + '/index.html');
-
+            // newWin.webContents.openDevTools();
             winLise[winName] = newWin
         }
 
