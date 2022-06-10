@@ -62,6 +62,32 @@ npm run build-win
 npm run build-mac
 ```
 
+## icns 制作教程
+
+> Mac电脑上操作
+
+桌面创建个文件夹，命名如：```icon```，我们就在这个文件夹里面进行操作。
+
+把源文件，拖进这个文件夹，命名为```pic.png```，同时，在此文件夹中创建一个文件夹```tmp.iconset```，然后，在icon目录下执行下面命令：
+
+```
+sips -z 16 16     pic.png --out tmp.iconset/icon_16x16.png
+sips -z 32 32     pic.png --out tmp.iconset/icon_16x16@2x.png
+sips -z 32 32     pic.png --out tmp.iconset/icon_32x32.png
+sips -z 64 64     pic.png --out tmp.iconset/icon_32x32@2x.png
+sips -z 128 128   pic.png --out tmp.iconset/icon_128x128.png
+sips -z 256 256   pic.png --out tmp.iconset/icon_128x128@2x.png
+sips -z 256 256   pic.png --out tmp.iconset/icon_256x256.png
+sips -z 512 512   pic.png --out tmp.iconset/icon_256x256@2x.png
+sips -z 512 512   pic.png --out tmp.iconset/icon_512x512.png
+sips -z 1024 1024   pic.png --out tmp.iconset/icon_512x512@2x.png
+```
+
+执行完毕后，再用下面的命令即可生成icns文件:
+
+```
+iconutil -c icns tmp.iconset -o Icon.icns
+```
 
 开源协议
 ---------------------------------------

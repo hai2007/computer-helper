@@ -36,14 +36,14 @@
       "static/**/*"
     ],
     "mac": {
-      "icon": "./image/logo256.ico",
+      "icon": "./image/logo.icns",
       "fileAssociations": [
         {
           "ext": [
             "computer-helper"
           ],
           "name": "Computer Helper",
-          "icon": "./image/logo256.ico",
+          "icon": "./image/logo.icns",
           "description": "Config Of Computer-Helper"
         }
       ],
@@ -55,7 +55,7 @@
     },
     "dmg": {
       "title": "Computer Helper",
-      "icon": "./image/logo256.ico"
+      "icon": "./image/logo.icns"
     },
     "win": {
       "icon": "./image/logo256.ico",

@@ -9,6 +9,7 @@ body[system='mac'] {
     div.view>.menu>.winBtn {
         left: 0;
         width: 70px;
+        z-index: 10;
 
         ul {
             position: relative;
